@@ -1,0 +1,20 @@
+source 'https://supermarket.getchef.com'
+
+metadata
+
+cookbook 'yum-epel', '~> 0.6.2'
+cookbook 'vim', '~> 1.1.2'
+cookbook 'ntp', '~> 1.6.5'
+cookbook 'openssh', '~> 1.3.4'
+cookbook 'curl', '~> 2.0.1'
+cookbook 'postfix', '~> 3.6.2'
+cookbook 'chef-client', '~> 4.0.0'
+cookbook 'build-essential', '~> 2.2.3'
+cookbook 'iptables', '~> 1.0.0'
+cookbook 'git', '~> 4.3.3'
+cookbook 'nodejs', '~> 2.4.0'
+cookbook 'selinux', '~> 0.9.0'
+cookbook 'monit-ng', '~> 2.0.2'
+cookbook 'users', '~> 1.8.2'
+cookbook 'openssl'
+cookbook 'sudo'

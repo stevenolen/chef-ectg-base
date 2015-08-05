@@ -1,0 +1,9 @@
+{
+  "id": "stevenolen",
+  "ssh_keys": [
+    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDk2u0WNBmQrPl1m6YFCyuTpt4WyjrW4wmMw2F8UBpLPsTjiO13COzyoCPK2PhNMjW02VEsa2P+gD9xpJBCci7fC0xCzsCR1ir+TxhJFKzwSOErbgm5PUW0hxTR0ifvAaz5xGQY8gf/S1rfDHnQ8iLDgDGKnUyknCuw/slLGoxTw/Ut8vJoAT6wqVLFK/Ph3wnIIwVj0DAvv9+sz7rY3dwbP/bqk0loYdNlPwL1TRssWe8KmkLA8tuwJ5XByKOQkJQcJybDD1qY1/IL5FWTsYp5o+O6b4sXRuwUVFRfXtlhNdzM+FzMgliB0XHDxIh/J/v7jdi9Gne0aGJu1n0BkV1P stevenolen@kitchen"
+  ],
+  "groups": ["sysadmin"],
+  "uid": 2003,
+  "comment": "Steve Nolen"
+}
