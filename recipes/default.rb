@@ -2,16 +2,16 @@
 # Cookbook Name:: ectg-base
 # Recipe:: default
 #
-# Copyright (C) 2015 Steve Nolen
+# Copyright (C) 2015 UC Regents
 #
 include_recipe 'curl'
 include_recipe 'build-essential'
-include_recipe 'iptables'
 include_recipe 'git'
 include_recipe 'nodejs::npm'
 include_recipe 'openssh'
 include_recipe 'openssl::upgrade'
 include_recipe 'yum-epel'
+include_recipe 'ectg-iptables::sshd' #opens 22, although it is probably already open
 
 # very basic postfix.
 node.set['postfix']['main']['smtpd_use_tls'] = 'no'
@@ -23,16 +23,6 @@ include_recipe 'postfix'
 
 selinux_state 'SELinux Permissive' do
   action :permissive
-end
-
-iptables_rule 'iptables_sshd' do
-  # look for this rule in templates/default/iptables_sshd.
-  source 'iptables_sshd.erb'
-  name 'sshd'
-  variables(
-    port: 22 # abstract as variable if we ever need to set not as 22.
-  )
-  action :enable
 end
 
 # sudo
