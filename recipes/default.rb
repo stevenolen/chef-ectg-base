@@ -47,8 +47,28 @@ sudo 'sysadmin' do
   nopasswd true
 end
 
-# assumes sysadmin data bag exists. bad!
-include_recipe 'users::sysadmins'
+# assumes users data bag exists. bad!
+users_manage 'sysadmin' do
+  group_id 2300
+  action [:remove, :create]
+end
+
+
+if node['fqdn'] == 'ucnext.oit.ucla.edu'
+  # manage ucnext group
+  users_manage 'ucnext' do
+    action [:remove, :create]
+  end
+
+  # allow sudoer commands for ucnext
+  sudo 'ucnext' do
+    group 'ucnext'
+    nopasswd true
+    commands ['/usr/bin/chef-client', '/sbin/service ucnext-staging *']
+  end
+end
+
+
 
 # chef-client config at the end
 include_recipe 'chef-client::config'
