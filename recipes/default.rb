@@ -53,7 +53,6 @@ users_manage 'sysadmin' do
   action [:remove, :create]
 end
 
-
 if node['fqdn'] == 'ucnext.oit.ucla.edu'
   # manage ucnext group
   users_manage 'ucnext' do
@@ -67,8 +66,6 @@ if node['fqdn'] == 'ucnext.oit.ucla.edu'
     commands ['/usr/bin/chef-client', '/sbin/service ucnext-staging *']
   end
 end
-
-
 
 # chef-client config at the end
 include_recipe 'chef-client::config'
