@@ -11,7 +11,10 @@ include_recipe 'nodejs::npm'
 include_recipe 'openssh'
 include_recipe 'openssl::upgrade'
 include_recipe 'yum-epel'
-include_recipe 'ectg-iptables::sshd' # opens 22, although it is probably already open
+
+unless node['fqdn'] == 'ucnext.oit.ucla.edu'
+  include_recipe 'ectg-iptables::sshd' # opens 22, although it is probably already open
+end
 
 # very basic postfix.
 node.set['postfix']['main']['smtpd_use_tls'] = 'no'
