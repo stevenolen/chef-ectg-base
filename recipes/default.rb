@@ -12,7 +12,10 @@ include_recipe 'openssh'
 include_recipe 'openssl::upgrade'
 include_recipe 'yum-epel'
 
-unless node['fqdn'] == 'staging.ucnext.org'
+case node['fqdn']
+when 'staging.ucnext.org', 'ucnext.org'
+  # don't add sshd by default. allows world open
+else
   include_recipe 'ectg-iptables::sshd' # opens 22, although it is probably already open
 end
 
