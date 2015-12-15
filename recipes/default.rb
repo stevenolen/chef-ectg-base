@@ -11,6 +11,7 @@ include_recipe 'nodejs::npm'
 include_recipe 'openssh'
 include_recipe 'openssl::upgrade'
 include_recipe 'yum-epel'
+include_recipe 'vim'
 
 case node['fqdn']
 when 'staging.ucnext.org', 'ucnext.org'
