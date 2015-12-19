@@ -69,7 +69,7 @@ users_manage 'sysadmin' do
   action [:remove, :create]
 end
 
-if node['fqdn'] == 'ucnext.oit.ucla.edu'
+if node['fqdn'] == 'ucnext.org' || node['fqdn'] == 'staging.ucnext.org'
   # manage ucnext group
   users_manage 'ucnext' do
     action [:remove, :create]
@@ -79,7 +79,7 @@ if node['fqdn'] == 'ucnext.oit.ucla.edu'
   sudo 'ucnext' do
     group 'ucnext'
     nopasswd true
-    commands ['/usr/bin/chef-client', '/sbin/service ucnext-staging *']
+    commands ['/usr/bin/chef-client', '/sbin/service ucnext-staging *', '/sbin/service ucnext-prod *']
   end
 end
 

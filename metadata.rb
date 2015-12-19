@@ -4,7 +4,7 @@ maintainer_email 'technolengy@gmail.com'
 license 'gplv3'
 description 'Installs/Configures ectg-base'
 long_description 'Installs/Configures ectg-base'
-version '0.1.4'
+version '0.1.5'
 
 depends 'yum-epel'
 depends 'vim'
