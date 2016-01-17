@@ -4,7 +4,10 @@ maintainer_email 'technolengy@gmail.com'
 license 'apachev2'
 description 'Installs/Configures ectg-base'
 long_description 'Installs/Configures ectg-base'
-version '0.1.6'
+version '0.2.0'
+
+supports 'ubuntu', '>= 12.04'
+supports 'centos', '6'
 
 depends 'yum-epel'
 depends 'vim'

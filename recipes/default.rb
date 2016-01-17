@@ -4,13 +4,20 @@
 #
 # Copyright (C) 2015 UC Regents
 #
+
+if node['platform'] == 'redhat' # redhat only items
+  include_recipe 'yum-epel'
+  selinux_state 'SELinux Permissive' do
+    action :permissive
+  end
+end
+
 include_recipe 'curl'
 include_recipe 'build-essential'
 include_recipe 'git'
 include_recipe 'nodejs::npm'
 include_recipe 'openssh'
 include_recipe 'openssl::upgrade'
-include_recipe 'yum-epel'
 include_recipe 'vim'
 
 case node['fqdn']
@@ -27,10 +34,6 @@ include_recipe 'postfix'
 
 # recommended vmware tools (disabling until tested alongside existing config.)
 # package 'open-vm-tools'
-
-selinux_state 'SELinux Permissive' do
-  action :permissive
-end
 
 node.set['ntp']['servers'] = [
   'tick.ucla.edu',
