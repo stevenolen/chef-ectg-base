@@ -1,10 +1,10 @@
 name 'ectg-base'
 maintainer 'Steve Nolen'
 maintainer_email 'technolengy@gmail.com'
-license 'gplv3'
+license 'apachev2'
 description 'Installs/Configures ectg-base'
 long_description 'Installs/Configures ectg-base'
-version '0.1.5'
+version '0.1.6'
 
 depends 'yum-epel'
 depends 'vim'
