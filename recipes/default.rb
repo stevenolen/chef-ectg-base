@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: ectg-base
+# Cookbook Name:: mwser-base
 # Recipe:: default
 #
 # Copyright (C) 2015 UC Regents
@@ -24,7 +24,7 @@ case node['fqdn']
 when 'staging.ucnext.org', 'ucnext.org'
   # don't add sshd by default. allows world open
 else
-  include_recipe 'ectg-iptables::sshd' # opens 22, although it is probably already open
+  include_recipe 'mwser-iptables::sshd' # opens 22, although it is probably already open
 end
 
 # very basic postfix.
