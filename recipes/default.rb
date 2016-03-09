@@ -20,12 +20,14 @@ include_recipe 'openssh'
 include_recipe 'openssl::upgrade'
 include_recipe 'vim'
 
-case node['fqdn']
-when 'staging.ucnext.org', 'ucnext.org'
-  # don't add sshd by default. allows world open
-else
-  include_recipe 'mwser-iptables::sshd' # opens 22, although it is probably already open
-end
+ case node['fqdn']
+ when 'staging.ucnext.org', 'ucnext.org'
+   # don't add sshd by default. allows world open
+ else
+   unless node['cloud']['provider'] == 'ec2'
+     include_recipe 'mwser-iptables::sshd' # opens 22, although it is probably already open
+   end
+ end
 
 # very basic postfix.
 node.set['postfix']['main']['smtpd_use_tls'] = 'no'
