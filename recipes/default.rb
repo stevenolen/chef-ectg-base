@@ -54,6 +54,8 @@ node.set['ntp']['servers'] = if node.attribute?('cloud') && node['cloud']['provi
                                ]
                              end
 include_recipe 'ntp'
+node.set['tz'] = 'America/Los_Angeles' # tz set to utc by default on ec2 instances
+include_recipe 'timezone-ii'
 
 # sudo
 node.set['authorization']['sudo']['sudoers_defaults'] = [
