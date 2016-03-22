@@ -37,13 +37,22 @@ include_recipe 'postfix'
 # recommended vmware tools (disabling until tested alongside existing config.)
 # package 'open-vm-tools'
 
-node.set['ntp']['servers'] = [
-  'tick.ucla.edu',
-  '0.pool.ntp.org',
-  '1.pool.ntp.org',
-  '2.pool.ntp.org',
-  '3.pool.ntp.org'
-]
+node.set['ntp']['servers'] = if node.attribute?('cloud') && node['cloud']['provider'] == 'ec2'
+                               [
+                                 '0.amazon.pool.ntp.org',
+                                 '1.amazon.pool.ntp.org',
+                                 '2.amazon.pool.ntp.org',
+                                 '3.amazon.pool.ntp.org'
+                               ]
+                             else
+                               [
+                                 'tick.ucla.edu',
+                                 '0.pool.ntp.org',
+                                 '1.pool.ntp.org',
+                                 '2.pool.ntp.org',
+                                 '3.pool.ntp.org'
+                               ]
+                             end
 include_recipe 'ntp'
 
 # sudo
