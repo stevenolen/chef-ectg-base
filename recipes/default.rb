@@ -10,6 +10,9 @@ if node['platform_family'] == 'redhat' # redhat only items
   selinux_state 'SELinux Permissive' do
     action :permissive
   end
+  package 'bind-utils'
+else
+  package 'dnsutils'
 end
 
 include_recipe 'curl'
@@ -19,6 +22,7 @@ include_recipe 'nodejs::npm'
 include_recipe 'openssh'
 include_recipe 'openssl::upgrade'
 include_recipe 'vim'
+package 'htop'
 
  case node['fqdn']
  when 'staging.ucnext.org', 'ucnext.org'
