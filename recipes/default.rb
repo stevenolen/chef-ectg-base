@@ -5,7 +5,7 @@
 # Copyright (C) 2015 UC Regents
 #
 
-if node['platform_family'] == 'redhat' # redhat only items
+if node['platform_family'] == 'rhel' # redhat only items
   include_recipe 'yum-epel'
   selinux_state 'SELinux Permissive' do
     action :permissive
