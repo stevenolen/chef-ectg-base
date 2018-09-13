@@ -103,6 +103,11 @@ if node['fqdn'] == 'ucnext.org' || node['fqdn'] == 'staging.ucnext.org'
   end
 end
 
+# Fix github complaining about https
+execute 'git config' do
+  command 'git config --system url."git://".insteadOf https://'
+end
+
 # chef-client config at the end
 include_recipe 'chef-client::config'
 include_recipe 'chef-client::init_service'
