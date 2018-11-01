@@ -108,6 +108,11 @@ execute 'git config' do
   command 'git config --system url."git://".insteadOf https://'
 end
 
+# Fix npm complaining about ssl certs
+execute 'npm config' do
+  command 'npm config set strict-ssl false'
+end
+
 # chef-client config at the end
 include_recipe 'chef-client::config'
 include_recipe 'chef-client::init_service'
