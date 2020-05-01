@@ -6,7 +6,7 @@
 #
 
 if node['platform_family'] == 'rhel' # redhat only items
-  include_recipe 'yum-epel'
+#  include_recipe 'yum-epel'
   selinux_state 'SELinux Permissive' do
     action :permissive
   end
@@ -29,7 +29,7 @@ package 'htop'
    # don't add sshd by default. allows world open
  else
    unless node.attribute?('cloud') && node['cloud']['provider'] == 'ec2'
-    include_recipe 'mwser-iptables::sshd' # opens 22, although it is probably already open
+#    include_recipe 'mwser-iptables::sshd' # opens 22, although it is probably already open
    end
  end
 
