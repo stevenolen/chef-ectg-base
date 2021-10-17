@@ -4,7 +4,7 @@ maintainer_email 'technolengy@gmail.com'
 license 'apachev2'
 description 'Installs/Configures mwser-base'
 long_description 'Installs/Configures mwser-base'
-version '0.3.5'
+version '0.4.0'
 
 supports 'ubuntu', '>= 12.04'
 supports 'centos', '~> 6.7'
